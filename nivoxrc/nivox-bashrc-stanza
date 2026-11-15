@@ -1,0 +1,27 @@
+# Load Nivox Modules
+
+NIVOX="$HOME/.nivox-modules"
+
+if [ -f "$NIVOX/nivox-starship-enable" ]; then
+    . "$NIVOX/nivox-starship-enable"
+fi
+
+if [ -f "$NIVOX/nivox-commands" ]; then
+    . "$NIVOX/nivox-commands"
+fi
+
+if [ -f "$NIVOX/nivox-aliases" ]; then
+    . "$NIVOX/nivox-aliases"
+fi
+
+if [ -f "$NIVOX/nivox-containers" ]; then
+    . "$NIVOX/nivox-containers"
+fi
+
+if [ -f "$NIVOX/nivox-connections" ]; then
+    . "$NIVOX/nivox-connections"
+fi
+
+if [ -f "$NIVOX/nivox-terminal-invoke" ]; then
+    . "$NIVOX/nivox-terminal-invoke"
+fi

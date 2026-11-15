@@ -1,0 +1,14 @@
+# Custom Commands
+
+sys-life() {
+
+    # Store numeric time values to calculate time since system installation
+
+    local BIRTH_OF_ROOT=$(stat -c %W /home);
+    local SECONDS_AFTER_EPOCH=$(date +%s);
+
+    # Show message to user with calculated time in days format
+
+    echo "The system has been running for $(((SECONDS_AFTER_EPOCH - BIRTH_OF_ROOT) / 86400)) days."
+
+}

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Eclipse IDE (Devel)
+GenericName=Eclipse IDE
+Comment=Java Development Platform
+Icon=eclipse.svg
+Exec=/home/nivolra/.local/bin/eclipse
+Categories=Development;GTK;

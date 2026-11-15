@@ -1,0 +1,5 @@
+# Aliases
+alias ll='ls -alh'
+alias nivox-fetch='fastfetch --config $HOME/.config/fastfetch/Nivox.jsonc'
+alias reboot='systemctl reboot'
+alias visudo='sudo EDITOR=vim visudo'

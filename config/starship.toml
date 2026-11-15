@@ -1,0 +1,63 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Useful Symbols to use for the prompt.
+# [░▒▓](bold green)
+# [➜](bold green)
+# [](bold green)
+# [](bold green)
+
+# Useful Color References
+# Red: #ED8352
+# Green: #8EE3AC
+# Blue: #ABBCDA
+
+format = """
+[┌─](#9BBEC2)\
+[](#CCCCCC)\
+$username\
+[](bg:#999999 fg:#CCCCCC)\
+$hostname\
+[](bg:#FFFFFF fg:#999999)\
+$directory\
+[](bg:#8EE3AC fg:#FFFFFF)\
+$time\
+[](bg:#FFFFFF fg:#8EE3AC)\
+$git_branch\
+[](bg:#E7D8B1 fg:#FFFFFF)\
+$os\
+[ ](#E7D8B1)
+[└─> ](#9BBEC2)
+"""
+
+[username]
+style_user = "fg:#2B313C bg:#00AFAF"
+style_root = "fg:#EB3A52 bg:#1E1F29"
+show_always = true
+format = "[ $user ](fg:#2B313C bg:#CCCCCC)"
+
+[hostname]
+ssh_only = false
+format = "[ $hostname ](fg:#2B313C bg:#999999)"
+
+[directory]
+read_only = ":ro!"
+format = "[ $path](fg:#2B313C bg:#FFFFFF)[$read_only ](fg:#2B313C bg:#FFFFFF)"
+
+[time]
+disabled = false
+time_format = "%a %b %e, %H:%M"
+format = "[ at $time ](fg:#2B313C bg:#8EE3AC)"
+
+[git_branch]
+symbol = '🌱 '
+truncation_length = 4
+truncation_symbol = ''
+format = "[ $symbol$branch(:$remote_branch) ](fg:#2B313C bg:#FFFFFF)(fg:#2B313C bg:#FFFFFF)"
+
+[os]
+disabled = false
+format = "[ $name ](fg:#2B313C bg:#E7D8B1)"

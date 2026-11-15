@@ -1,0 +1,2 @@
+# Terminal Invocation
+fastfetch --config $HOME/.config/fastfetch/Nivox.jsonc

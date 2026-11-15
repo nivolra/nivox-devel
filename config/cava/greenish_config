@@ -1,0 +1,17 @@
+# Cava Config File for Niveria
+
+[general]
+framerate = 60
+autosens = 1
+# bars = 99
+
+[color]
+gradient = 1
+gradient_color_1 = '#CCCCCC'
+gradient_color_2 = '#999999'
+gradient_color_3 = '#FFFFFF'
+gradient_color_4 = '#ABBCDA'
+gradient_color_5 = '#E7D8B1'
+gradient_color_6 = '#CCCCCC'
+gradient_color_7 = '#999999'
+gradient_color_8 = '#FFFFFF'

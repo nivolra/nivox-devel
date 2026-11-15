@@ -1,0 +1,2 @@
+# Container Shortcuts
+alias devel='distrobox enter Devel -nw'
