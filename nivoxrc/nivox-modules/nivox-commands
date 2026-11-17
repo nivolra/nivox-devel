@@ -4,11 +4,40 @@ sys-life() {
 
     # Store numeric time values to calculate time since system installation
 
-    local BIRTH_OF_ROOT=$(stat -c %W /home);
-    local SECONDS_AFTER_EPOCH=$(date +%s);
+    local home_dir_timestamp=$(stat -c %W /home);
+    local seconds_passed=$(date +%s);
+    local days_passed=$(((seconds_passed - home_dir_timestamp) / 86400))
 
     # Show message to user with calculated time in days format
 
-    echo "The system has been running for $(((SECONDS_AFTER_EPOCH - BIRTH_OF_ROOT) / 86400)) days."
+    case $days_passed in
+      0) echo "Freshly installed and ready to serve!" ;;
+      1) echo "Welcome to your new system. Did you install everything you need?" ;;
+      7) echo "A week has passed and you're still here. Nice!" ;;
+      14) echo "Two weeks passed. Is it getting comfortable?" ;;
+      30) echo "A month has passed. You seem to like it here." ;;
+      50) echo "That's a trip from Japan to Egypt. The world opens up for you." ;;
+      100) echo "That's a statement. Either for your determination - or your laziness." ;;
+      150) echo "A system made to last." ;;
+      *) echo "The system has been running for $days_passed days." ;;
+    esac
+
+}
+
+sql-setup() {
+ 
+  # Change this if you need a specific mariadb version or container name.
+ 
+  local image="mariadb:lts"
+  local container_name="sql-server"
+
+  # This will delete the old container, so BE careful!
+
+  if podman container exists "$container-name"; 
+    then podman rm -f -- "$container_name";
+  fi
+  
+  podman pull "docker.io/$image" || return;
+  podman run --name "$container_name" --detach --env MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1 -p 3306:3306 "$image";
 
 }

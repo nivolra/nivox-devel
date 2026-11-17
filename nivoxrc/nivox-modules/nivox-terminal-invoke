@@ -1,2 +1,3 @@
 # Terminal Invocation
 fastfetch --config $HOME/.config/fastfetch/Nivox.jsonc
+notify-send -t 7777 "Nivolra's Message of the Day!" "$(sys-life)"
