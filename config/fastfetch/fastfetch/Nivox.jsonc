@@ -1,0 +1,167 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json", 
+  
+  // Logo Settings
+
+  "logo": {
+    "type": "auto",
+
+    // My own ascii image, change to your own.
+
+    "source": "$HOME/.config/fastfetch/nivoxASCII.txt",
+
+    // White is not actual White. It's what my terminal's white color would be!
+
+    "color": {
+      "1": "white"
+    }
+  },
+
+  // Module Settings
+
+  "modules": [
+  
+    // Fastfetch Headline
+
+    {
+      "type": "version",
+      "key": " ",
+      "format": "   THE NIVOX CONFIG: FASTFETCH v{version}"
+    },
+
+    // Here should the custom line be!
+    
+    {
+      "type": "custom",
+      "format": "┌───────────────────────────────────────┐"
+    },
+
+    // Section 1: OS, HOST, KERNEL
+
+    {
+      "type": "os",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "host",
+      "format": "{vendor} {name}"
+    },
+    {
+      "type": "kernel",
+      "format": "{release}"
+    },
+
+    // Separator
+
+    {
+      "type": "custom",
+      "format": " --------------------------------------- "
+    },
+
+    // Section 2: Uptime, Packages, Shell
+
+    {
+      "type": "uptime",
+      "format": "{hours}h {minutes}min"
+    },
+    {
+      "type": "packages",
+      "format": "{all} (debs, flatpak)"
+    },
+    {
+      "type": "shell",
+      "format": "{pretty-name}"
+    },
+
+    // Separator
+
+    {
+      "type": "custom",
+      "format": " --------------------------------------- "
+    },
+
+    // Section 3: Display, Desktop Enivornment, Window Manager
+
+    {
+    "type": "display",
+    "key": "DP",
+    "format": "{width}x{height} {refresh-rate}Hz"
+    },
+    "de",
+    "wm",
+
+    // Separator
+
+    {
+      "type": "custom",
+      "format": " --------------------------------------- "
+    },
+
+    // Section 4: Icon Theme and Font
+
+    {
+      "type": "icons",
+      "format": "{icons2}"
+    },
+    {
+      "type": "font",
+      "format": "{font2}"
+    },
+
+    // Separator
+
+    {
+      "type": "custom",
+      "format": " --------------------------------------- "
+    },
+
+   // Section 5: CPU, GPU, Memory
+
+    {
+      "type": "cpu",
+      "format": "{name}"
+    },
+    {
+      "type": "gpu",
+      "format": "{name}" 
+    },
+    {
+      "type": "memory",
+      "format": "{used} out of {total}"
+    },
+
+    // Here should the custom line be!
+
+    {
+      "type": "custom",
+      "format": "└───────────────────────────────────────┘"
+    },
+
+    // The Nivox Poem
+
+    {
+      "type": "custom",
+      "format": " -------------NIVOX----POEM------------- "
+    },
+    {
+      "type": "custom",
+      "format": " -------I Led the Tar Soul inside------- "
+    },
+    {
+      "type": "custom",
+      "format": " --She's been chasing me my whole life-- "
+    },
+    {
+      "type": "custom",
+      "format": " Now the frozen lady is my ultimate wife "
+    },
+    
+    // Color output
+
+    {
+      "type": "colors",
+      "paddingLeft": 13,
+      "symbol": "circle"
+    },
+  ]
+}
