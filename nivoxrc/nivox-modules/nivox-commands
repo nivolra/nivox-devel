@@ -18,6 +18,7 @@ sys-life() {
       30) echo "A month has passed. You seem to like it here." ;;
       50) echo "That's a trip from Japan to Egypt. The world opens up for you." ;;
       100) echo "That's a statement. Either for your determination - or your laziness." ;;
+      120) echo "That's all powerstars collected. So long-a, Bowser." ;;
       150) echo "A system made to last." ;;
       *) echo "The system has been running for $days_passed days." ;;
     esac
@@ -33,11 +34,15 @@ sql-setup() {
 
   # This will delete the old container, so BE careful!
 
-  if podman container exists "$container-name"; 
-    then podman rm -f -- "$container_name";
+  if podman container exists "$container_name"; then
+    echo "Old container found. Deleting now..."; 
+    podman rm -f -- "$container_name";
   fi
   
-  podman pull "docker.io/$image" || return;
-  podman run --name "$container_name" --detach --env MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1 -p 3306:3306 "$image";
+  podman pull "docker.io/$image" || { echo "Couldn't pull image. Aborting operation." && return; }
+  podman run --detach --name "$container_name" --env MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1 -p 3306:3306 "$image";
+
+  echo "MariaDB has been successfully deployed and started."
+  echo "You can stop the container by typing 'podman stop $container_name'."
 
 }
