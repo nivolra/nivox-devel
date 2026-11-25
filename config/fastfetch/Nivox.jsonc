@@ -66,7 +66,7 @@
     },
     {
       "type": "packages",
-      "format": "{all} (deb, flatpak)"
+      "format": "{all} (pkgs)"
     },
     {
       "type": "shell",
@@ -162,6 +162,6 @@
       "type": "colors",
       "paddingLeft": 13,
       "symbol": "circle"
-    },
+    }
   ]
 }
