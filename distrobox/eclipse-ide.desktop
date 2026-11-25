@@ -1,8 +1,12 @@
+# Start your isolated Eclipse IDE from your host desktop.
+# NOTE : This only works, if you exported the app via 'distrobox-export --bin'
+
 [Desktop Entry]
 Type=Application
 Name=Eclipse IDE (Devel)
 GenericName=Eclipse IDE
 Comment=Java Development Platform
 Icon=eclipse.svg
-Exec=/home/nivolra/.local/bin/eclipse
+# Change this path to your own user.
+# Exec=$USER/.local/bin/eclipse
 Categories=Development;GTK;
