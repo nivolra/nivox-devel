@@ -155,12 +155,6 @@
       vlc
       libdvdcss # DVD Decryption
       filezilla
- 
-      # Office
-      libreoffice-still
-      hunspell
-      hunspellDicts.de_DE
-      hunspellDicts.en_US
     ];
   };
 
