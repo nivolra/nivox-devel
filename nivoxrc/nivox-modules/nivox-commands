@@ -25,7 +25,7 @@ sys-life() {
 
 }
 
-sql-setup() {
+sql-init() {
  
   # Change this if you need a specific mariadb version or container name.
  
@@ -39,10 +39,36 @@ sql-setup() {
     podman rm -f -- "$container_name";
   fi
   
-  podman pull "docker.io/$image" || { echo "Couldn't pull image. Aborting operation." && return; }
+  podman pull "docker.io/$image" || { echo "Couldn't pull image. Aborting operation." && return 1; }
   podman run --detach --name "$container_name" --env MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1 -p 3306:3306 "$image";
 
   echo "MariaDB has been successfully deployed and started."
   echo "You can stop the container by typing 'podman stop $container_name'."
+
+}
+
+dbox-init() {
+  
+  # Creation of directories should be handled by the Nivox Jumpstarter script.
+
+  local dbox_root="$HOME/.distroboxes"
+  local dbox_conf="$HOME/.local/share/nivox"
+
+  # Setting up a separate environment in your users' home.
+
+  echo "Setting up a dedicated environment in $box_root..."
+  mkdir -p "$dbox_root"
+
+  # Check for distrobox configuration file and execute it.
+
+  echo "Building distroboxes..."
+  [ -f "$dbox_conf/devel.ini"  ] || { echo "The init file for distrobox is missing. Aborting." && return 1; }
+  distrobox assemble create --file "$box_conf/devel.ini" || { echo "Couldn't build the init file. Aborting." && return 1; }
+
+  # Check for bootsrap script and execute it.
+
+  echo "Bootstrapping Development environments..."
+  [ -f "$dbox_conf/bootstrap.sh"  ] || { echo "The bootstrap file for distrobox is missing. Aborting." && return 1; }
+  bash "$box_conf/bootstrap.sh"
 
 }
